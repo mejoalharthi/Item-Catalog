@@ -1,0 +1,12 @@
+{% extends "Header.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-10">
+    <h2>Delete Item:</h2>
+    <form action="{{url_for('DeleteItem', item_name=Item.name)}}"  enctype='multipart/form-data' method = 'POST'>
+      <span>Are you sure you want delete {{Item.name}} item?</span>
+    <!-- Delete Button  -->
+        <input type="submit" value="Delete">
+    </form>
+
+{% endblock %}

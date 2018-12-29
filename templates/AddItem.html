@@ -1,0 +1,25 @@
+{% extends "Header.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-10">
+    <h2>Add New Item:</h2>
+    <form action="{{url_for('AddNewItem')}}"  enctype='multipart/form-data' method = 'POST'>
+    <!-- Item Category -->
+      <label for="ItemCategory"> Item Category : </label>
+      <select name="ItemCategory">
+        {% for c in Allcategories %}
+        <option value="{{c.name}}">{{c.name}}</option>
+        {% endfor %}
+        </select>
+    <!-- Item Name -->
+        <label for="Name"> Item Name: </label>
+        <input type ="text" maxlength="80" name="Name" required>
+    <!-- Item Description -->
+        <label for="Description"> Item Description: </label>
+        <textarea maxlength="600" rows="4" name="Description" required></textarea>
+        <br/><br/>
+    <!-- Add Button  -->
+        <input type="submit" value="Add">
+    </form>
+
+{% endblock %}

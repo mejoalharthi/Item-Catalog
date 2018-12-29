@@ -1,0 +1,22 @@
+
+{% extends "Header.html" %}
+{% block content %}
+<div class="row countenr">
+<div class="col-5">
+<h3>Categories</h3>
+{% for c in Allcategories %}
+  <a href="{{url_for('ShowCategoryItems', category_id = c.id)}}"> {{c.name}}</a>
+  <br>
+{% endfor %}
+</div>
+   <div class="col-1 vDivider"></div>
+   <div class="col-6">
+  <h4>Latest Items</h4>
+     {% for n in NewstItems %}
+     <a href="{{url_for('ShowItemDescription', Category_name = n.category.name, Item_id =n.id)}}">{{n.name}}</a>
+     <span> ({{n.category.name}})</span>
+     <br>
+     {% endfor %}
+   </div>
+</div>
+{% endblock %}
