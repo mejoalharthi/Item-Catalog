@@ -256,6 +256,7 @@ def ShowItemDescription(Category_name, Item_id):
     item = session.query(Item).filter_by(id=Item_id).one()
     userInfo = getUserInfo(item.user_id)
     if category.id == item.category_id:
+        if 'username' not in login_session or (
         userInfo.id != login_session['user_id']):
             return render_template('ShowItemDescription.html', item=item)
         else:
