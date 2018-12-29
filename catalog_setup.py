@@ -13,7 +13,7 @@ class User(Base):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
-    username = Column(String(250), nullable=False)
+    name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
 
 
@@ -39,7 +39,7 @@ class Item(Base):
     name = Column(String(80), nullable=False)
     item_info = Column(String(400))
     category_id = Column(Integer, ForeignKey('category.id'))
-    category = relationship(Category)
+    category = relationship(Category, cascade='delete')
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
